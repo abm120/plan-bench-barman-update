@@ -95,7 +95,7 @@ def barman_instances(n_instances):
         level = [0,1,2]
         ingredient = list(range(random.randint(2, 8)))
         dispenser = ingredient
-        shot = list(range(random.randint(1, 11)))
+        shot = list(range(random.randint(1, 5)))
 
         max_possible_cocktails = len(list(combinations(ingredient,2)))
 
@@ -178,7 +178,7 @@ def barman_instances(n_instances):
             init.append(f"(cocktail-part2 cocktail{c} ingredient{ingredient_parts[1]})")
 
         pddl_text = gen_instance(init, goal, objs, problem)
-        f = open(f"instances/barman/instance{start}.pddl", 'w')
+        f = open(f"instances/barman/instance-{start}.pddl", 'w')
         f.write(pddl_text)
         f.close()
 
