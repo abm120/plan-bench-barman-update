@@ -6,7 +6,7 @@ import random
 with open('configs/barman.yaml', 'r') as file:
     data = yaml.safe_load(file)
 
-#num = data['n_instances']
+num_instances = data['n_instances']
 """
 
 def add_objects_barman(shot, hand, shaker, ingredient, dispenser, cocktail, level):
