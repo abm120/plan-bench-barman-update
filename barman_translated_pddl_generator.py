@@ -189,4 +189,4 @@ def barman_instances(n_instances):
 
 
 #gen_goal_directed_instances_barman(5)
-barman_instances(100)
+barman_instances(num_instances)
