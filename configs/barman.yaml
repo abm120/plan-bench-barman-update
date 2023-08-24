@@ -2,9 +2,9 @@ instance_dir: barman/generated_basic
 generalized_instance_dir: barman/generated
 domain_file: barman/generated_domain.pddl
 domain_name: barman
-n_instances: 501
+n_instances: 101
 start: 1
-end: 500
+end: 100
 instances_template: instance-{}.pddl
 # Seems like there will be a lot of restrictions on actions due to the types specifications, other than preconditions etc....
 domain_intro: |
