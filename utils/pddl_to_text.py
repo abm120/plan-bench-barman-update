@@ -1,6 +1,7 @@
 
 
 import random
+import re
 
 def get_sorted(init_atoms):
     return sorted(init_atoms, key=lambda x: x.symbol.name + " " + " ".join([subterm.name for subterm in x.subterms]))
@@ -9,7 +10,6 @@ def parse_problem(problem, data, shuffle):
     def parse(init_goal_preds, OBJS):
         TEXT = ""
         predicates = []
-
         init_goal_preds = list(init_goal_preds)
         for atom in init_goal_preds:
             objs = []
@@ -21,6 +21,8 @@ def parse_problem(problem, data, shuffle):
                 elif 'logistics' in data['domain_name']:
                     obj = subterm.name
                     objs.append(f"{OBJS[obj[0]].format(*[chr for chr in obj if chr.isdigit()])}")
+                elif 'barman' in data['domain_name']:
+                    objs.append(re.sub("^l","level",subterm.name))
                 # ADD SPECIFIC TRANSLATION FOR EACH DOMAIN HERE
             try:
                 pred_string = data['predicates'][atom.symbol.name].format(*objs)
@@ -28,7 +30,6 @@ def parse_problem(problem, data, shuffle):
             except:
                 # print("[-]: Predicate not found in predicates dict: {}".format(atom.symbol.name))
                 pass
-            
         if len(predicates) > 1:
             TEXT += ", ".join(predicates[:-1]) + f" and {predicates[-1]}"
         else:
