@@ -263,7 +263,6 @@ def text_to_state(text, data):
         return text_to_state_barman(text_preds, data)
     # ADD SPECIFIC TRANSLATION FOR EACH DOMAIN HERE
 
-#TODO Finish this
 def text_to_state_barman(preds, data):
     pddl_state = []
     for pred in preds:
