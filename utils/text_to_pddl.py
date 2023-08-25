@@ -1,4 +1,5 @@
 import numpy as np 
+import re
 
 def get_ordered_objects(object_names, line):
     objs = []
@@ -25,11 +26,44 @@ def text_to_plan(text, action_set, plan_file, data, cot=False, ground_flag=False
         return text_to_plan_logistics(text, action_set, plan_file, data, ground_flag)
     elif 'blocksworld' in data['domain_name']:
         return text_to_plan_blocksworld(text, action_set, plan_file, data, ground_flag)
-
+    elif 'barman' in data['domain_name']:
+        return text_to_plan_barman(text, action_set, plan_file, data, ground_flag)
     # ADD SPECIFIC TRANSLATION FOR EACH DOMAIN HERE
 
 
+def text_to_plan_barman(text, action_set, plan_file, data, ground_flag=False):
+    raw_actions = [i.lower() for i in list(action_set.keys())]
+    plan = ""
+    readable_plan = ""
+    lines = [line.strip().lower() for line in text.split("\n")]
+    for line in lines:
+        if not line or line =="[plan end]":
+            continue
+        if '[COST]' in line:
+            break
 
+        line = re.sub("^[0-9]+.","",line)
+        line = re.sub("level", "l", line)
+
+        objs = [i for i in line.split() if has_digit(i)]
+        
+        for x in raw_actions:
+            if x in line.split(" "): #some actions are substrings of others
+                action = x
+                continue
+    
+        readable_action = "({} {})".format(action, " ".join(objs))
+        if not ground_flag:
+            action = "({} {})".format(action, " ".join(objs))
+        else:
+            action = "({}_{})".format(action, "_".join(objs))
+        plan += f"{action}\n"
+        readable_plan += f"{readable_action}\n"
+    # print(f"[+]: Saving plan in {plan_file}")
+    file = open(plan_file, "wt")
+    file.write(plan)
+    file.close()
+    return plan, readable_plan
 
 def has_digit(string):
     return any(char.isdigit() for char in string)
@@ -225,7 +259,32 @@ def text_to_state(text, data):
         return text_to_state_logistics(text_preds, data)
     elif 'blocksworld' in data['domain_name']:
         return text_to_state_blocksworld(text_preds, data)
+    elif 'barman' in data['domain_name']:
+        return text_to_state_barman(text_preds, data)
     # ADD SPECIFIC TRANSLATION FOR EACH DOMAIN HERE
+
+#TODO Finish this
+def text_to_state_barman(preds, data):
+    pddl_state = []
+    for pred in preds:
+        pred = pred.strip()
+        if pred == '':
+            continue
+        if ' not ' in pred:
+            continue
+        if ' is on the table' in pred:
+            objs = [i for i in pred.split(' is on the table') if len(i)>0]
+            pddl_pred = 'at_' + '_'.join(objs)
+        elif ' is in ' in pred:
+            objs = [i for i in pred.split(' is in ') if len(i)>0]
+            pddl_pred = 'in_' + '_'.join(objs)
+        elif ' is on ' in pred:
+            objs = [i for i in pred.split(' is on ') if len(i)>0]
+            pddl_pred = 'on_' + '_'.join(objs)
+        else:
+            continue
+        pddl_state.append(pddl_pred)
+    return pddl_state
 
 def text_to_state_obfuscated(preds, data):
     pddl_state = []

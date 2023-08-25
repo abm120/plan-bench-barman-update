@@ -101,6 +101,8 @@ def instance_to_text(problem, get_plan, data, shuffle=False):
                 objs = [OBJS[obj] for obj in objs]
             elif 'logistics' in data['domain_name']:
                 objs = [f"{OBJS[obj[0]].format(*[chr for chr in obj if chr.isdigit()])}" for obj in objs] 
+            elif 'barman' in data['domain_name']:
+                objs = [j.replace('level','l') for j in objs]
             # ADD SPECIFIC TRANSLATION FOR EACH DOMAIN HERE
         
             PLAN += data['actions'][act_name].format(*objs) + "\n"

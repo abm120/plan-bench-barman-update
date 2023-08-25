@@ -15,12 +15,12 @@ domain_intro: |
       Leave a container on the table
       Fill a shot
       Refill a shot
-      Empty a shot
+      Unfill a shot
       Clean a shot
-      Pour contents of a shot into a clean shaker
-      Pour contents of a shot into a used shaker
+      C-pour contents of a shot into a clean shaker
+      D-pour contents of a shot into a used shaker
       Empty a shaker
-      Clean a shaker
+      Wash a shaker
       Shake a shaker
       Pour contents of a shaker into a shot
 
@@ -47,37 +47,37 @@ domain_intro: |
       I can only refill a shot if the shot is empty.
       Once I refill a shot, the shot is no longer empty.
       Once I refill a shot with an ingredient, the shot contains that ingredient.
-      I can only empty a shot if I am holding the shot.
-      I can only empty a shot if the shot contains some beverage.
-      Once I empty a shot, the shot no longer contains the beverage.
-      Once I empty a shot, the shot becomes empty.
+      I can only unfill a shot if I am holding the shot.
+      I can only unfill a shot if the shot contains some beverage.
+      Once I unfill a shot, the shot no longer contains the beverage.
+      Once I unfill a shot, the shot becomes empty.
       I can only clean a shot if I am holding the shot with one of my hands.
       I can only clean a shot if the shot is empty.
       I can only clean a shot if my other hand is empty.
       Once I clean a shot, the shot becomes clean.
       Once I clean a shot, the shot is no longer used.
-      I can pour contents of a shot into a clean shaker only if the shaker is clean.
-      I can pour contents of a shot into a clean shaker only if I am holding the shot.
-      I can pour contents of a shot into a clean shaker only if the shot contains an ingredient.
-      I can pour contents of a shot into a clean shaker only if the shaker is empty.
-      I can pour contents of a shot into a clean shaker only if the shaker has a higher level available.
-      Once I pour the contents of a shot into a clean shaker, the shot no longer contains the ingredient.
-      Once I pour the contents of a shot into a clean shaker, the shot is empty.
-      Once I pour the contents of a shot into a clean shaker, the shaker is no longer empty.
-      Once I pour the contents of a shot into a clean shaker, the shaker contains the ingredient.
-      Once I pour the contents of a shot into a clean shaker, the shaker is no longer clean.
-      Once I pour the contents of a shot into a clean shaker, the shaker is unshaked.       
-      Once I pour the contents of a shot into a clean shaker, the shaker-level is no longer at its previous level.
-      Once I pour the contents of a shot into a clean shaker, the shaker-level is at its next level.                     
-      I can pour contents of a shot into a used shaker only if the shaker is unshaked.
-      I can pour contents of a shot into a used shaker only if I am holding the shot.
-      I can pour contents of a shot into a used shaker only if the shot contains an ingredient.
-      I can pour contents of a shot into a used shaker only if the shaker has a higher level available.
-      Once I pour the contents of a shot into the used shaker, the shot no longer contains the ingredient.
-      Once I pour the contents of a shot into the used shaker, the shot is empty.
-      Once I pour the contents of a shot into the used shaker, the shaker contains the ingredient.
-      Once I pour the contents of a shot into the used shaker, the shaker-level is no longer at its previous level.
-      Once I pour the contents of a shot into the used shaker, the shaker-level is at its next level.
+      I can c-pour contents of a shot into a clean shaker only if the shaker is clean.
+      I can c-pour contents of a shot into a clean shaker only if I am holding the shot.
+      I can c-pour contents of a shot into a clean shaker only if the shot contains an ingredient.
+      I can c-pour contents of a shot into a clean shaker only if the shaker is empty.
+      I can c-pour contents of a shot into a clean shaker only if the shaker has a higher level available.
+      Once I c-pour the contents of a shot into a clean shaker, the shot no longer contains the ingredient.
+      Once I c-pour the contents of a shot into a clean shaker, the shot is empty.
+      Once I c-pour the contents of a shot into a clean shaker, the shaker is no longer empty.
+      Once I c-pour the contents of a shot into a clean shaker, the shaker contains the ingredient.
+      Once I c-pour the contents of a shot into a clean shaker, the shaker is no longer clean.
+      Once I c-pour the contents of a shot into a clean shaker, the shaker is unshaked.       
+      Once I c-pour the contents of a shot into a clean shaker, the shaker-level is no longer at its previous level.
+      Once I c-pour the contents of a shot into a clean shaker, the shaker-level is at its next level.                     
+      I can d-pour contents of a shot into a used shaker only if the shaker is unshaked.
+      I can d-pour contents of a shot into a used shaker only if I am holding the shot.
+      I can d-pour contents of a shot into a used shaker only if the shot contains an ingredient.
+      I can d-pour contents of a shot into a used shaker only if the shaker has a higher level available.
+      Once I d-pour the contents of a shot into the used shaker, the shot no longer contains the ingredient.
+      Once I d-pour the contents of a shot into the used shaker, the shot is empty.
+      Once I d-pour the contents of a shot into the used shaker, the shaker contains the ingredient.
+      Once I d-pour the contents of a shot into the used shaker, the shaker-level is no longer at its previous level.
+      Once I d-pour the contents of a shot into the used shaker, the shaker-level is at its next level.
       I can empty the shaker only if I am holding the shaker.
       I can empty the shaker only if the shaker contains a beverage.
       I can empty the shaker only if the shaker is shaked.
@@ -86,10 +86,10 @@ domain_intro: |
       Once I empty the shaker, the shaker-level is the same as the shaker-empty-level.
       Once I empty the shaker, the shaker no longer contains the beverage.
       Once I empty the shaker, the shaker is empty.
-      I can clean the shaker only if I am holding the shaker with one of my hands.
-      I can clean the shaker only if the other hand is empty.
-      I can clean the shaker only if the shaker is empty.
-      Once I clean the shaker, the shaker is clean.
+      I can wash the shaker only if I am holding the shaker with one of my hands.
+      I can wash the shaker only if the other hand is empty.
+      I can wash the shaker only if the shaker is empty.
+      Once I wash the shaker, the shaker is clean.
       I can shake the shaker only if I am holding the shaker with one of my hands.
       I can shake the shaker only if the other hand is empty.
       I can shake the shaker only if the shaker contains two ingredients. And those two ingredients form a cocktail.
@@ -116,36 +116,36 @@ domain_intro: |
 
 
 actions:
-  {grasp: "grasp the {}",
-   leave: "put down the {}",
-   fill-shot: "fill the {} with the {}",
-   refill-shot: "refill the {} with the {}",
-   empty-shot: "empty the {}",
-   clean-shot: "clean the {}",
-   pour-shot-to-clean-shaker: "pour the contents of {} into the {}",
-   pour-shot-to-used-shaker: "pour the contents of {} into the {}",
-   empty-shaker: "empty the {}",
-   clean-shaker: "clean the {}",
-   shake: "shake the {}",
-   pour-shaker-to-shot: "pour contents of the {} to the {}"}
+  {grasp: "use {} to grasp {}",
+   leave: "use {} to put down {}",
+   fill-shot: "fill {} with {} while holding it in {} and using {} to operate {}",
+   refill-shot: "refill {} with {} while holding it in {} and using {} to operate {}",
+   empty-shot: "use {} to unfill {} of {}",
+   clean-shot: "clean {} of {} while holding it in {} and using {} to clean",
+   pour-shot-to-clean-shaker: "c-pour the contents of {} which consist of {} into {} using {}, bringing the shaker's level from {} to {}",
+   pour-shot-to-used-shaker: "d-pour the contents of {} which consist of {} into {} using {}, the shaker's level from {} to {}",
+   empty-shaker: "use {} to empty {} of {}, bringing the shaker's level from {} to {}",
+   clean-shaker: "holding it with {} and cleaning with {}, wash {}",
+   shake: "shake up {} from {} and {} in {} while holding the shaker with {} and keeping {} empty",
+   pour-shaker-to-shot: "pour {} into {} using {} to hold {}, bringing the shaker's level from {} to {}"}
 
 
 predicates:
-  {ontable: "the {} is on the table",
-   holding: "the {} is holding the {}",
-   handempty: "the {} is empty",
-   empty: "the {} is empty",
-   contains: "the {} contains {}",
-   clean: "the {} is clean",
-   used: "the {} has been used with {}",
-   dispenses: "the {} dispenses {}",
-   shaker-empty-level: "the {} will be empty at level {}",
-   shaker-level: "the {} is at level {}",
-   next: "the next level of {} is {}",
-   unshaked: "the {} is unshaked",
-   shaked: "the {} is shaked",
-   cocktail-part1: "the {} constitutes {}",
-   cocktail-part2: "the {} constitutes {}"
+  {ontable: "{} is on the table",
+   holding: "{} is holding {}",
+   handempty: "{} is empty",
+   empty: "{} is empty",
+   contains: "{} contains {}",
+   clean: "{} is clean",
+   used: "{} has been used and contains traces of {}",
+   dispenses: "{} dispenses {}",
+   shaker-empty-level: "{} will be empty at level {}",
+   shaker-level: "{} is at level {}",
+   next: "the level after {} is {}",
+   unshaked: "{} is unshaked",
+   shaked: "{} is shaked",
+   cocktail-part1: "the first ingredient in {} is {}",
+   cocktail-part2: "the second ingredient in {} is {}"
    }
 
 predicate_mapping:
@@ -165,7 +165,7 @@ predicate_mapping:
 
 # encoded_objects: dictionary of object names, have to be alphabetical - CHECK INSTANCE EXAMPLES FROM LLM+P WORK --------------- 
 encoded_objects:
-  {"s": "shot_{}", "h": "{}_hand", "k": "shaker_{}", "i": "ingredient_{}", "d": "dispenser_{}", "c": "cocktail_{}", "l": "level_{}"}
+  {"shot": "shot{}", "right": "right hand", "left": "left hand" "shaker": "shaker{}", "ingredient": "ingredient{}", "dispenser": "dispenser{}", "cocktail": "cocktail{}", "l": "level{}"}
 
 callbacks:
    - t1_gen_goal_directed_instances
