@@ -274,13 +274,49 @@ def text_to_state_barman(preds, data):
             continue
         if ' is on the table' in pred:
             objs = [i for i in pred.split(' is on the table') if len(i)>0]
-            pddl_pred = 'at_' + '_'.join(objs)
-        elif ' is in ' in pred:
-            objs = [i for i in pred.split(' is in ') if len(i)>0]
-            pddl_pred = 'in_' + '_'.join(objs)
-        elif ' is on ' in pred:
-            objs = [i for i in pred.split(' is on ') if len(i)>0]
-            pddl_pred = 'on_' + '_'.join(objs)
+            pddl_pred = 'ontable_' + objs[0]
+        elif ' hand is empty' in pred:
+            objs = [i for i in pred.split(' hand is empty') if len(i)>0]
+            pddl_pred = 'handempty_' + objs[0]
+        elif ' is holding ' in pred:
+            objs = [i for i in pred.split(' is holding ') if len(i)>0]
+            pddl_pred = 'holding_' + '_'.join(objs)
+        elif ' is empty' in pred:
+            objs = [i for i in pred.split(' is empty') if len(i)>0]
+            pddl_pred = 'empty_' + objs[0]
+        elif ' contains ' in pred:
+            objs = [i for i in pred.split(' contains ') if len(i)>0]
+            pddl_pred = 'contains_' + '_'.join(objs)
+        elif ' is clean' in pred:
+            objs = [i for i in pred.split(' is clean') if len(i)>0]
+            pddl_pred = 'clean_' + objs[0]
+        elif ' has been used and contains traces of ' in pred:
+            objs = [i for i in pred.split(' has been used and contains traces of ') if len(i)>0]
+            pddl_pred = 'used_' + '_'.join(objs)
+        elif ' dispenses ' in pred:
+            objs = [i for i in pred.split(' dispenses ') if len(i)>0]
+            pddl_pred = 'dispenses_' + '_'.join(objs)
+        elif ' will be empty at level ' in pred:
+            objs = [i for i in pred.split(' will be empty at level ') if len(i)>0]
+            pddl_pred = 'shaker-empty-level_' + '_'.join(objs)
+        elif ' is at level ' in pred:
+            objs = [i for i in pred.split(' is at level ') if len(i)>0]
+            pddl_pred = 'shaker-level_' + '_'.join(objs)
+        elif ' is the level before ' in pred:
+            objs = [i for i in pred.split(' is the level before ') if len(i)>0]
+            pddl_pred = 'next_' + '_'.join(objs)
+        elif ' is unshaked' in pred:
+            objs = [i for i in pred.split(' is unshaked') if len(i)>0]
+            pddl_pred = 'unshaked_' + objs[0]
+        elif ' is shaked' in pred:
+            objs = [i for i in pred.split(' is shaked') if len(i)>0]
+            pddl_pred = 'shaked_' + objs[0]
+        elif ' has a first ingredient of ' in pred:
+            objs = [i for i in pred.split(' has a first ingredient of ') if len(i)>0]
+            pddl_pred = 'cocktail-part1_' + '_'.join(objs)
+        elif ' has a second ingredient of ' in pred:
+            objs = [i for i in pred.split(' has a second ingredient of ') if len(i)>0]
+            pddl_pred = 'cocktail-part2_' + '_'.join(objs)
         else:
             continue
         pddl_state.append(pddl_pred)

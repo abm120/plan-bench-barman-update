@@ -141,11 +141,11 @@ predicates:
    dispenses: "{} dispenses {}",
    shaker-empty-level: "{} will be empty at level {}",
    shaker-level: "{} is at level {}",
-   next: "the level after {} is {}",
+   next: "{} is the level before {}",
    unshaked: "{} is unshaked",
    shaked: "{} is shaked",
-   cocktail-part1: "the first ingredient in {} is {}",
-   cocktail-part2: "the second ingredient in {} is {}"
+   cocktail-part1: "{} has a first ingredient of {}",
+   cocktail-part2: "{} has a second ingredient of {}"
    }
 
 predicate_mapping:
