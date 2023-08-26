@@ -1,12 +1,12 @@
-(define (problem barman-3-2-1-7-7-20-3)
+(define (problem barman-1-2-1-3-3-2-3)
  (:domain barman)
  (:objects
 	shaker1 - shaker
-	shot0 shot1 shot2 - shot
-	dispenser0 dispenser1 dispenser2 dispenser3 dispenser4 dispenser5 dispenser6 - dispenser
+	shot0 - shot
+	dispenser0 dispenser1 dispenser2 - dispenser
 	left right - hand
-	ingredient0 ingredient1 ingredient2 ingredient3 ingredient4 ingredient5 ingredient6 - ingredient
-	cocktail0 cocktail1 cocktail2 cocktail3 cocktail4 cocktail5 cocktail6 cocktail7 cocktail8 cocktail9 cocktail10 cocktail11 cocktail12 cocktail13 cocktail14 cocktail15 cocktail16 cocktail17 cocktail18 cocktail19 - cocktail
+	ingredient0 ingredient1 ingredient2 - ingredient
+	cocktail0 cocktail1 - cocktail
 	l0 l1 l2 - level)
 
 (:init 
@@ -16,70 +16,22 @@
 	(ontable shot0)
 	(clean shot0)
 	(empty shot0)
-	(ontable shot1)
-	(clean shot1)
-	(empty shot1)
-	(ontable shot2)
-	(clean shot2)
-	(empty shot2)
 	(dispenses dispenser0 ingredient0)
 	(dispenses dispenser1 ingredient1)
 	(dispenses dispenser2 ingredient2)
-	(dispenses dispenser3 ingredient3)
-	(dispenses dispenser4 ingredient4)
-	(dispenses dispenser5 ingredient5)
-	(dispenses dispenser6 ingredient6)
 	(handempty left)
 	(handempty right)
 	(shaker-empty-level shaker1 l0)
 	(shaker-level shaker1 l0)
 	(next l0 l1)
 	(next l1 l2)
-	(cocktail-part1 cocktail0 ingredient6)
-	(cocktail-part2 cocktail0 ingredient3)
-	(cocktail-part1 cocktail1 ingredient4)
-	(cocktail-part2 cocktail1 ingredient0)
-	(cocktail-part1 cocktail2 ingredient5)
-	(cocktail-part2 cocktail2 ingredient1)
-	(cocktail-part1 cocktail3 ingredient2)
-	(cocktail-part2 cocktail3 ingredient1)
-	(cocktail-part1 cocktail4 ingredient6)
-	(cocktail-part2 cocktail4 ingredient0)
-	(cocktail-part1 cocktail5 ingredient2)
-	(cocktail-part2 cocktail5 ingredient1)
-	(cocktail-part1 cocktail6 ingredient2)
-	(cocktail-part2 cocktail6 ingredient0)
-	(cocktail-part1 cocktail7 ingredient0)
-	(cocktail-part2 cocktail7 ingredient2)
-	(cocktail-part1 cocktail8 ingredient2)
-	(cocktail-part2 cocktail8 ingredient3)
-	(cocktail-part1 cocktail9 ingredient4)
-	(cocktail-part2 cocktail9 ingredient1)
-	(cocktail-part1 cocktail10 ingredient3)
-	(cocktail-part2 cocktail10 ingredient0)
-	(cocktail-part1 cocktail11 ingredient1)
-	(cocktail-part2 cocktail11 ingredient5)
-	(cocktail-part1 cocktail12 ingredient2)
-	(cocktail-part2 cocktail12 ingredient6)
-	(cocktail-part1 cocktail13 ingredient5)
-	(cocktail-part2 cocktail13 ingredient3)
-	(cocktail-part1 cocktail14 ingredient4)
-	(cocktail-part2 cocktail14 ingredient1)
-	(cocktail-part1 cocktail15 ingredient6)
-	(cocktail-part2 cocktail15 ingredient5)
-	(cocktail-part1 cocktail16 ingredient0)
-	(cocktail-part2 cocktail16 ingredient3)
-	(cocktail-part1 cocktail17 ingredient3)
-	(cocktail-part2 cocktail17 ingredient4)
-	(cocktail-part1 cocktail18 ingredient4)
-	(cocktail-part2 cocktail18 ingredient2)
-	(cocktail-part1 cocktail19 ingredient5)
-	(cocktail-part2 cocktail19 ingredient3)
+	(cocktail-part1 cocktail0 ingredient0)
+	(cocktail-part2 cocktail0 ingredient2)
+	(cocktail-part1 cocktail1 ingredient0)
+	(cocktail-part2 cocktail1 ingredient1)
 )
 
 (:goal
 (and
-	(contains shot0 cocktail13)
-	(contains shot1 cocktail13)
-	(contains shot2 cocktail15)
+	(contains shot0 cocktail0)
 )))

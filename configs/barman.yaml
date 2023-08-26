@@ -165,7 +165,7 @@ predicate_mapping:
 
 # encoded_objects: dictionary of object names, have to be alphabetical - CHECK INSTANCE EXAMPLES FROM LLM+P WORK --------------- 
 encoded_objects:
-  {"shot": "shot{}", "right": "right hand", "left": "left hand" "shaker": "shaker{}", "ingredient": "ingredient{}", "dispenser": "dispenser{}", "cocktail": "cocktail{}", "l": "level{}"}
+  {"shot": "shot{}", "right": "right hand", "left": "left hand", "shaker": "shaker{}", "ingredient": "ingredient{}", "dispenser": "dispenser{}", "cocktail": "cocktail{}", "l": "level{}"}
 
 callbacks:
    - t1_gen_goal_directed_instances

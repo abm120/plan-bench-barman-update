@@ -100,7 +100,7 @@ def barman_instances(n_instances):
         max_possible_cocktails = len(list(combinations(ingredient,2)))
 
         # BUT #COCKTAILS SHOULD BE < INGREDIENTS_C_2 -- So change 8 to MAX_POSSIBLE_COCKTAILS
-        cocktail = list(range(random.randint(1, max_possible_cocktails)))
+        cocktail = list(range(random.randint(1, min(3,max_possible_cocktails))))
 
         problem = str(len(shot)) +"-"+ str(len(hand)) +"-"+  str(len(shaker)) +"-"+  str(len(ingredient)) +"-"+  str(len(dispenser)) +"-"+  str(len(cocktail)) +"-"+  str(len(level))
 
@@ -178,7 +178,7 @@ def barman_instances(n_instances):
             init.append(f"(cocktail-part2 cocktail{c} ingredient{ingredient_parts[1]})")
 
         pddl_text = gen_instance(init, goal, objs, problem)
-        f = open(f"instances/barman/instance-{start}.pddl", 'w')
+        f = open(f"instances/barman/generated_basic/instance-{start}.pddl", 'w')
         f.write(pddl_text)
         f.close()
 
