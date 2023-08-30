@@ -1,8 +1,8 @@
-(define (problem barman-2-2-1-2-2-1-3)
+(define (problem barman-3-2-1-2-2-1-3)
  (:domain barman)
  (:objects
 	shaker1 - shaker
-	shot0 shot1 - shot
+	shot0 shot1 shot2 - shot
 	dispenser0 dispenser1 - dispenser
 	left right - hand
 	ingredient0 ingredient1 - ingredient
@@ -19,6 +19,9 @@
 	(ontable shot1)
 	(clean shot1)
 	(empty shot1)
+	(ontable shot2)
+	(clean shot2)
+	(empty shot2)
 	(dispenses dispenser0 ingredient0)
 	(dispenses dispenser1 ingredient1)
 	(handempty left)
@@ -27,12 +30,13 @@
 	(shaker-level shaker1 l0)
 	(next l0 l1)
 	(next l1 l2)
-	(cocktail-part1 cocktail0 ingredient0)
-	(cocktail-part2 cocktail0 ingredient1)
+	(cocktail-part1 cocktail0 ingredient1)
+	(cocktail-part2 cocktail0 ingredient0)
 )
 
 (:goal
 (and
 	(contains shot0 cocktail0)
 	(contains shot1 cocktail0)
+	(contains shot2 cocktail0)
 )))

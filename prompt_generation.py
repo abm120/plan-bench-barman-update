@@ -47,6 +47,7 @@ class PromptGenerator:
     
     def compute_plan(self, domain, instance):
         fast_downward_path = os.getenv("FAST_DOWNWARD")
+        print(fast_downward_path)
         # Remove > /dev/null to see the output of fast-downward
         assert os.path.exists(f"{fast_downward_path}/fast-downward.py")
         cmd = f"{fast_downward_path}/fast-downward.py {domain} {instance} --search \"astar(lmcut())\" > /dev/null 2>&1"

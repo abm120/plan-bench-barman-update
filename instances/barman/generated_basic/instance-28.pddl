@@ -33,8 +33,8 @@
 	(shaker-level shaker1 l0)
 	(next l0 l1)
 	(next l1 l2)
-	(cocktail-part1 cocktail0 ingredient4)
-	(cocktail-part2 cocktail0 ingredient3)
+	(cocktail-part1 cocktail0 ingredient1)
+	(cocktail-part2 cocktail0 ingredient2)
 )
 
 (:goal
