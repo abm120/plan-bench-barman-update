@@ -95,7 +95,7 @@ def barman_instances(n_instances):
         level = [0,1,2]
         ingredient = list(range(random.randint(2, 8)))
         dispenser = ingredient
-        shot = list(range(random.randint(1, 4)))
+        shot = list(range(random.randint(1, 5)))
 
         max_possible_cocktails = len(list(combinations(ingredient,2)))
 

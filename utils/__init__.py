@@ -6,7 +6,6 @@ import hashlib
 from tarski.io import PDDLReader
 from tarski.syntax.formulas import *
 
-os.environ["OPENAI_API_KEY"] = "sk-"
 openai.api_key = os.environ["OPENAI_API_KEY"]
 random.seed(10)
 
